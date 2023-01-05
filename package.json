@@ -10,14 +10,19 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:split-toolkit.helloWorld"
+    "onCommand:split-toolkit.split-up",
+    "onCommand:split-toolkit.split-down"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "split-toolkit.helloWorld",
-        "title": "Hello World"
+        "command": "split-toolkit.split-up",
+        "title": "SPLIT Up"
+      },
+      {
+        "command": "split-toolkit.split-down",
+        "title": "SPLIT Down"
       }
     ]
   },
@@ -41,5 +46,9 @@
     "mocha": "^10.1.0",
     "typescript": "^4.9.3",
     "@vscode/test-electron": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:StereoPT/split-toolkit.git"
   }
 }
