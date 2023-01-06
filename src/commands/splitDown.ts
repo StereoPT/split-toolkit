@@ -4,7 +4,7 @@ import { setupTerminal } from '.';
 export default () => {
 	const splitTerminal = setupTerminal();
 	const commands = [
-		//'docker-compose stop mongo mongo2 redis',
+		'docker-compose stop mongo mongo2 redis',
 		'colima stop',
 		'exit',
 	];

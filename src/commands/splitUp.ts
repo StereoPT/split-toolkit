@@ -5,7 +5,7 @@ export default () => {
 	const splitTerminal = setupTerminal();
 	const commands = [
 		'colima start',
-		//'docker-compose up -d mongo mongo2 redis',
+		'docker-compose up -d mongo mongo2 redis',
 		'exit',
 	];
 
