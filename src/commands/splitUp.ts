@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import{ window } from 'vscode';
 import { setupTerminal } from '.';
 
 export default () => {
@@ -12,8 +12,8 @@ export default () => {
 	// Check before things START to avoid Double Up
 	splitTerminal.sendText(commands.join(' && '));
 
-	const disposable = vscode.window.onDidCloseTerminal(t => {
-		vscode.window.showInformationMessage('Split Up!');
+	const disposable = window.onDidCloseTerminal(t => {
+		window.showInformationMessage('Split Up!');
 		disposable.dispose();
 	});
 };

@@ -11,21 +11,15 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [],
+	"activationEvents": [
+		"onCommand:split-toolkit.split"
+	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "split-toolkit.split-up",
-				"title": "SPLIT Up"
-			},
-			{
-				"command": "split-toolkit.split-down",
-				"title": "SPLIT Down"
-			},
-			{
-				"command": "split-toolkit.split-run",
-				"title": "SPLIT Run"
+				"command": "split-toolkit.split",
+				"title": "SPLIT"
 			}
 		]
 	},

@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import{ window, env, Uri } from 'vscode';
 import { setupTerminal } from '.';
 
 export default () => {
@@ -7,6 +7,6 @@ export default () => {
 
 	// Check before things RUN to avoid Double Run
 	splitTerminal.sendText(commands.join(' && '));
-	vscode.window.showInformationMessage('Split Running!');
-	vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
+	window.showInformationMessage('Split Running!');
+	env.openExternal(Uri.parse('http://localhost:3000'));
 };
