@@ -13,7 +13,8 @@
 	],
 	"activationEvents": [
 		"onCommand:split-toolkit.split-up",
-		"onCommand:split-toolkit.split-down"
+		"onCommand:split-toolkit.split-down",
+		"onCommand:split-toolkit.split-run"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -25,6 +26,10 @@
 			{
 				"command": "split-toolkit.split-down",
 				"title": "SPLIT Down"
+			},
+			{
+				"command": "split-toolkit.split-run",
+				"title": "SPLIT Run"
 			}
 		]
 	},

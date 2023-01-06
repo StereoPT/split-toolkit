@@ -16,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const splitTerminal = setupTerminal();
 		const commands = [
 			'colima start',
-			'docker-compose up -d mongo mongo2 redis',
+			//'docker-compose up -d mongo mongo2 redis',
 			'exit',
 		];
 
@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const SplitDOWN = () => {
 		const splitTerminal = setupTerminal();
 		const commands = [
-			'docker-compose stop mongo mongo2 redis',
+			//'docker-compose stop mongo mongo2 redis',
 			'colima stop',
 			'exit',
 		];
@@ -45,11 +45,23 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 	};
 
+	const SplitRUN = () => {
+		const splitTerminal = setupTerminal();
+		const commands = ['npm run dev'];
+
+		// Check before things RUN to avoid Double Run
+		splitTerminal.sendText(commands.join(' && '));
+		vscode.window.showInformationMessage('Split Running!');
+	};
+
 	context.subscriptions.push(
 		vscode.commands.registerCommand('split-toolkit.split-up', SplitUP)
 	);
 	context.subscriptions.push(
 		vscode.commands.registerCommand('split-toolkit.split-down', SplitDOWN)
+	);
+	context.subscriptions.push(
+		vscode.commands.registerCommand('split-toolkit.split-run', SplitRUN)
 	);
 }
 
