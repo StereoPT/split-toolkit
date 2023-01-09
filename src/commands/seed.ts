@@ -2,8 +2,6 @@ import{ window } from 'vscode';
 import axios from 'axios';
 import { faker } from '@faker-js/faker';
 
-const numberOfAccounts = 5;
-
 type User = {
   email: string
   firstName: string
@@ -14,7 +12,18 @@ type User = {
 export default async () => {
   const users: User[] = [];
 
-  Array.from({ length: numberOfAccounts }).forEach(() => {
+  const userInput = await window.showInputBox({
+    title: "How many users to add?",
+    placeHolder: 'Number of users',
+  });
+
+  if(!userInput) return;
+  if(+userInput <= 0) {
+    window.showErrorMessage("User amount must be greater than 0!");
+    return;
+  }
+
+  Array.from({ length: +userInput }).forEach(() => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const email = faker.internet.email(firstName, lastName);
