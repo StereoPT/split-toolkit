@@ -1,4 +1,4 @@
-import{ window, env, Uri } from 'vscode';
+import { window, env, Uri } from 'vscode';
 import { setupTerminal } from '.';
 
 export default () => {

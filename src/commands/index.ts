@@ -1,4 +1,4 @@
-import{ window, QuickPickItem } from 'vscode';
+import { window, QuickPickItem } from 'vscode';
 
 import splitUp from './splitUp';
 import splitDown from './splitDown';
@@ -17,18 +17,18 @@ export const setupTerminal = () => {
 };
 
 type commandType = {
-	[key: string]: () => void
-}
+	[key: string]: () => void;
+};
 
 const commands: commandType = {
-	'up': splitUp,
-	'down': splitDown,
-	'run': splitRun,
-	'seed': seed
+	up: splitUp,
+	down: splitDown,
+	run: splitRun,
+	seed: seed,
 };
 
 type CustomQuickPickItem = QuickPickItem & {
-	key: string
+	key: string;
 };
 
 const SplitQuickPick = async () => {
@@ -37,13 +37,13 @@ const SplitQuickPick = async () => {
 			key: 'up',
 			label: '$(fold-up) Up',
 			detail: 'Starts Colima and Docker Containers',
-			picked: false
+			picked: false,
 		},
 		{
 			key: 'down',
 			label: '$(fold-down) Down',
 			detail: 'Stops Colima and Docker Containers',
-			picked: false
+			picked: false,
 		},
 		{
 			key: 'run',
@@ -55,23 +55,25 @@ const SplitQuickPick = async () => {
 			key: 'seed',
 			label: '$(organization) Seed',
 			detail: 'Seeds the Database with Users',
-			picked: false
-		}
+			picked: false,
+		},
 	];
 
-	window.showQuickPick(pickOptions, {
-		canPickMany: false,
-		title: 'Split-Toolkit'
-	}).then((selected) => {
-		if(!selected) return;
+	window
+		.showQuickPick(pickOptions, {
+			canPickMany: false,
+			title: 'Split-Toolkit',
+		})
+		.then(selected => {
+			if (!selected) return;
 
-		if(!commands[selected.key]) return;
+			if (!commands[selected.key]) return;
 
-		return commands[selected.key]();
-	});
-}
+			return commands[selected.key]();
+		});
+};
 
 export default {
 	name: 'split-toolkit.split',
-	fn : SplitQuickPick
+	fn: SplitQuickPick,
 };

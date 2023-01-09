@@ -5,7 +5,9 @@ import splitCommand from './commands';
 // await spawn('colima', ['status']);
 
 export function activate(context: ExtensionContext) {
-	context.subscriptions.push(commands.registerCommand(splitCommand.name, splitCommand.fn));
+	context.subscriptions.push(
+		commands.registerCommand(splitCommand.name, splitCommand.fn)
+	);
 }
 
 export function deactivate() {}
