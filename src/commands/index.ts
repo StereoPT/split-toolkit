@@ -1,7 +1,9 @@
 import{ window, QuickPickItem } from 'vscode';
+
 import splitUp from './splitUp';
 import splitDown from './splitDown';
 import splitRun from './splitRun';
+import seed from './seed';
 
 export const setupTerminal = () => {
 	let splitTerminal = window.activeTerminal;
@@ -22,6 +24,7 @@ const commands: commandType = {
 	'up': splitUp,
 	'down': splitDown,
 	'run': splitRun,
+	'seed': seed
 };
 
 type CustomQuickPickItem = QuickPickItem & {
@@ -47,6 +50,12 @@ const SplitQuickPick = async () => {
 			label: '$(run) Run',
 			detail: 'Starts Frontend and Backend',
 			picked: false,
+		},
+		{
+			key: 'seed',
+			label: '$(organization) Seed',
+			detail: 'Seeds the Database with Users',
+			picked: false
 		}
 	];
 

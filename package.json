@@ -49,6 +49,8 @@
 		"url": "git+ssh://git@github.com:StereoPT/split-toolkit.git"
 	},
 	"dependencies": {
+		"@faker-js/faker": "^7.6.0",
+		"axios": "^1.2.2",
 		"spawn-please": "^2.0.1"
 	}
 }
